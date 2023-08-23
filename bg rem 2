@@ -1,0 +1,132 @@
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from PIL import Image
+
+# Load the pre-trained DeepLabV3 model with a MobileNetV2 backbone
+model = tf.keras.applications.DeepLabV3(
+    weights='cityscapes',
+    input_shape=(None, None, 3),
+    classes=21,
+    backbone='mobilenetv2',
+    activation='softmax'
+)
+
+# Load and preprocess the input image
+image_path = 'input_image.jpg'
+image = Image.open(image_path)
+image = image.resize((512, 512))  # Resize for consistent input size
+input_array = tf.keras.preprocessing.image.img_to_array(image)
+input_array = tf.expand_dims(input_array, 0)
+input_array = tf.keras.applications.mobilenet_v2.preprocess_input(input_array)
+
+# Get the model's predictions for semantic segmentation
+predictions = model.predict(input_array)
+mask = np.argmax(predictions, axis=-1)
+
+# Create a mask to remove the background
+background_class_id = 0  # Assuming the background class ID is 0
+foreground_mask = np.where(mask != background_class_id, 1, 0)
+
+# Apply the mask to the original image
+foreground = input_array[0] * foreground_mask[..., np.newaxis]
+
+# Display the results
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.imshow(image)
+plt.title('Original Image')
+
+plt.subplot(1, 2, 2)
+plt.imshow(foreground.astype(np.uint8))
+plt.title('Foreground Image')
+
+plt.tight_layout()
+plt.show()
+
+
+
+--------------------HTML----------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Removal</title>
+</head>
+<body>
+    <h1>Background Removal Tool</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button id="removeBackgroundButton">Remove Background</button>
+    <div id="resultContainer">
+        <h2>Result:</h2>
+        <img id="resultImage" alt="Background Removed">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------JAVA SCRIPT------------------------
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageInput = document.getElementById('imageInput');
+    const removeBackgroundButton = document.getElementById('removeBackgroundButton');
+    const resultImage = document.getElementById('resultImage');
+    const resultContainer = document.getElementById('resultContainer');
+
+    removeBackgroundButton.addEventListener('click', async function() {
+        const imageFile = imageInput.files[0];
+        if (!imageFile) {
+            alert('Please select an image.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', imageFile);
+
+        try {
+            const response = await fetch('/remove-background', {
+                method: 'POST',
+                body: formData
+            });
+
+            const resultUrl = await response.text();
+            resultImage.src = resultUrl;
+            resultContainer.style.display = 'block';
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+});
+
+=============================================================
+Install the remove-bg package using npm install remove-bg.
+
+
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const removeBg = require('remove-bg').promisify;
+
+const app = express();
+app.use(bodyParser.json());
+
+app.post('/remove-background', async (req, res) => {
+    const imageBuffer = req.body.image;
+    if (!imageBuffer) {
+        res.status(400).send('Image not provided.');
+        return;
+    }
+
+    try {
+        const result = await removeBg({ image: imageBuffer, apiKey: 'YOUR_API_KEY' });
+        res.send(result.base64img);
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('An error occurred.');
+    }
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
