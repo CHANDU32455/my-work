@@ -1,0 +1,32 @@
+
+import cv2
+import numpy as np
+
+# Load the image
+image_path = 'image address'
+image = cv2.imread(image_path)
+
+# Create a mask with zeros, same size as the loaded image
+mask = np.zeros(image.shape[:2], np.uint8)
+
+# Define the foreground and background models
+bgdModel = np.zeros((1, 65), np.float64)
+fgdModel = np.zeros((1, 65), np.float64)
+
+# Specify the region of interest in the image (rectangle) that contains the foreground object
+rect = (x_start, y_start, width, height)  # Customize these values to select your object region
+
+# Apply GrabCut algorithm to segment the object from the background
+cv2.grabCut(image, mask, rect, bgdModel, fgdModel, 5, cv2.GC_INIT_WITH_RECT)
+
+# Create a mask where the foreground and possible foreground (likely foreground) pixels are set to 1
+mask2 = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
+
+# Apply the mask to the original image
+output_image = image * mask2[:, :, np.newaxis]
+
+# Display the original image and the resulting image with the background removed
+cv2.imshow("Original Image", image)
+cv2.imshow("Image with Background Removed", output_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
