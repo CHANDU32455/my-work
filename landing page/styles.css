@@ -1,0 +1,126 @@
+
+.circular_pic_of_me {
+    border-radius: 50%;
+    border: 3px solid black;
+    width: 270px;
+    height: 270px;
+    overflow: hidden; /* Ensures the image stays within the circular border */
+    float: right; /* Floats the circular image to the right */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-left: 20px; /* Adjust the margin as needed */
+    margin-top: 70px; /* Adjust the margin to move the image slightly down */
+}
+
+
+header { 
+    background-color: #2327a4; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    font-size: 24px; /* Font size */
+    position: fixed; /* Fixed position so it stays at the top of the viewport */
+    top: 0;
+    left: 0;
+    z-index: 999; /* Ensure it appears above other elements */
+}
+
+header a {
+    color: #fff; /* Text color for links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Add spacing between links */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+header a:hover {
+    color: #ea00ff; /* Change text color on hover */
+}
+
+.hireme_button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+button:hover {
+    background-color: #33b300; /* Darker background color on hover */
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.web_dev_heading {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+
+.body1{
+    background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--ZmPcIbAW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dzone.com/storage/temp/12334613-971.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:center;
+}
+
+.aligned-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.aligned-div h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.aligned-div h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.aligned-div p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.image_next_to_hiremebutton{
+    width: 100%;
+    height: 280px;
+}
+
+footer {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 50px; /* Adjust the height as needed */
+    background-color: aliceblue;
+    text-align: center;
+    position: fixed;
+    bottom: 0; /* Adjusted bottom value */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
