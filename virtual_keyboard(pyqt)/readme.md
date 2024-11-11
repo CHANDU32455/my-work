@@ -74,7 +74,7 @@ Special characters are mapped to the secondary symbols dictionary and appear whe
 2. Click on any key of the virtual keyboard to insert the corresponding character.
 3. Use the Shift or Caps Lock keys to modify the case of letters.
 4. Press Backspace to delete the last character.
-5. Press Enter to submit the text.
+5. Press submit to submit the text.
 
 ## Screenshot
 
