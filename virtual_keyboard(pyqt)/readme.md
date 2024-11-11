@@ -78,7 +78,7 @@ Special characters are mapped to the secondary symbols dictionary and appear whe
 
 ## Screenshot
 
-![Screenshot](screenshot.png)
+![Screenshot](output.png)
 
 ## Future Enhancements
 
