@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Clone</title>
+    <link rel="stylesheet" href="./styles//styles.css">
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>LeetCode</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="problems.html">Problems</a></li>
+                <li><a href="discuss.html">Discuss</a></li>
+                <li><a href="premium.html">Premium</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <button class="btn" id="signInBtn">Sign In</button>
+                <button class="btn primary" id="signUpBtn">Sign Up</button>
+            </div>
+            <div class="logged-in-buttons" id="loggedInButtons" style="display: none;">
+                <span id="loggedInUser"></span>
+                <button class="btn" id="logoutBtn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Landing Page Content -->
+        <section id="landingPage">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Master Your Coding Skills</h1>
+                    <p>Practice coding, prepare for interviews, and land your dream job.</p>
+                    <div class="cta-buttons">
+                        <button class="btn primary">Get Started</button>
+                        <button class="btn">Explore Problems</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://imgs.search.brave.com/F6xiyPytHN5cDXuhUZhfAcJReLFa988ViTHEZFdVxMA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTA2/MTAzMTA1Ni9waG90/by9wcmUtYWRvbGVz/Y2VudC1ib3ktcHJv/Z3JhbW1pbmctYXQt/Y29tcHV0ZXIuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPVpw/ZE16M1dPS2xhaG5C/Qk96ZXVlNGZkU0l5/emxaeUh5Zlc0dDlx/aV94SFE9"
+                        alt="Coding Illustration">
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Why Choose LeetCode?</h2>
+                <div class="feature-cards">
+                    <div class="card">
+                        <h3>Curated Problems</h3>
+                        <p>Access a wide range of problems to improve your coding skills.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Interview Prep</h3>
+                        <p>Prepare for technical interviews with real-world questions.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Community Support</h3>
+                        <p>Join discussions and learn from a vibrant community.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Dashboard Content -->
+        <section id="dashboardPage" style="display: none;">
+            <section class="dashboard">
+                <h2>Welcome to Your Dashboard</h2>
+                <div class="dashboard-content">
+                    <p>Start solving problems and improving your coding skills!</p>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3>Problems Solved</h3>
+                            <p id="problemsSolved">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Current Streak</h3>
+                            <p id="currentStreak">0 days</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Points</h3>
+                            <p id="totalPoints">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Active Challenges</h3>
+                            <p id="activeChallenges">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Sign In Modal -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <input type="email" id="signInEmail" placeholder="Email" required>
+                <input type="password" id="signInPassword" placeholder="Password" required>
+                <button type="submit" class="btn primary">Sign In</button>
+            </form>
+            <p id="signInError" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <input type="text" id="signUpName" placeholder="Name" required>
+                <input type="email" id="signUpEmail" placeholder="Email" required>
+                <input type="password" id="signUpPassword" placeholder="Password" required>
+                <button type="submit" class="btn primary">Sign Up</button>
+            </form>
+            <p id="signUpError" class="error-message"></p>
+        </div>
+    </div>
+
+    <footer class="sticky-footer">
+        <p>&copy; 2023 LeetCode Clone. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
