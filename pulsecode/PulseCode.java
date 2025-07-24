@@ -122,7 +122,7 @@ public class PulseCode extends JFrame {
         try {
             int enteredCode = Integer.parseInt(input);
             if (enteredCode == currentCode || enteredCode == previousCode) {
-                statusLabel.setText("✅ Authenticated");
+                statusLabel.setText("Authenticated...");
                 statusLabel.setForeground(Color.GREEN);
                 Timer resetTimer = new Timer();
                 resetTimer.schedule(new TimerTask() {
@@ -134,11 +134,11 @@ public class PulseCode extends JFrame {
                     }
                 }, 10000);
             } else {
-                statusLabel.setText("❌ Invalid Code");
+                statusLabel.setText("Invalid Code");
                 statusLabel.setForeground(Color.RED);
             }
         } catch (NumberFormatException e) {
-            statusLabel.setText("❌ Invalid Input");
+            statusLabel.setText("Invalid Input");
             statusLabel.setForeground(Color.RED);
         }
     }
