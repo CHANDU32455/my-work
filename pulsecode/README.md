@@ -69,7 +69,7 @@ This system simulates a two-factor authentication mechanism with the following f
 ---
 
 ## 💻 Output
- [(pulsecode_output.png)]
+![Output Screenshot](pulsecode_output.png)
 
 ---
 
