@@ -68,44 +68,8 @@ This system simulates a two-factor authentication mechanism with the following f
 
 ---
 
-## 💻 Sample Output
-
-```text
-Available authentication modes:
-1. Console
-2. Email
-3. SMS
-
-Default mode: Console
-
-Enter code or choose mode (1-Console, 2-Email, 3-SMS):
-Console Mode: Your Current Code: 676235
-
-Console Mode: Your Current Code: 986743
-1
-You're already in this mode (Console). Try switching to a different one.
-
-Enter code or choose mode (1-Console, 2-Email, 3-SMS):
-Console Mode: Your Current Code: 128697
-2
-Email sent with code: 128697
-Switched temporarily to Email mode. Now back to default: Console
-
-Enter code or choose mode (1-Console, 2-Email, 3-SMS): 3
-SMS sent with code: 128697
-Switched temporarily to SMS mode. Now back to default: Console
-
-Enter code or choose mode (1-Console, 2-Email, 3-SMS):
-Console Mode: Your Current Code: 560692
-986743
-Invalid code. Try again...
-
-Enter code or choose mode (1-Console, 2-Email, 3-SMS):
-Console Mode: Your Current Code: 597161
-560692
-
-We got you bro...  Authentication Successful.
-```
+## 💻 Output
+ [`pulsecode_output.png`]
 
 ---
 
